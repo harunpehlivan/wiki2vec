@@ -36,8 +36,7 @@ class PreprocessingLineSentence():
                 # replace all punctuation with a space, unless it's inside a DBPEDIA_ID
                 line_parts = []
                 start_at = 0
-                for list_idx, match in enumerate(re.finditer(r"DBPEDIA_ID/\S+", line)):
-
+                for match in re.finditer(r"DBPEDIA_ID/\S+", line):
                     edited = line[start_at: match.start()].translate(replace_punctuation)
 
                     line_parts.append(edited)
